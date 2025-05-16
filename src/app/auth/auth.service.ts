@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { User } from './user.model';
 import { catchError, firstValueFrom, tap, throwError } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { StorageService } from '../services/storage.service';
 
 @Injectable({

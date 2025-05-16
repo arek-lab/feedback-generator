@@ -4,7 +4,7 @@ import { message } from './message-model';
 import { StorageService } from './storage.service';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

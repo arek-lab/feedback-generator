@@ -1,0 +1,20 @@
+.navbar {
+  border-bottom: 1px solid #ffffff15;
+}
+a {
+  cursor: pointer;
+}
+.navbar-brand {
+  flex: 1;
+}
+.credits {
+  margin: 0 2rem;
+}
+svg {
+  color: #fffa8d;
+  margin-left: 0.5rem;
+}
+span {
+  font-size: 1rem;
+  color: #fffa8d;
+}

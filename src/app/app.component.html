@@ -1,0 +1,8 @@
+<app-navbar />
+@if (!loading()) {
+<div class="router">
+  <router-outlet />
+</div>
+} @else {
+<div class="container"><app-loader /></div>
+}

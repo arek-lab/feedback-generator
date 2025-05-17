@@ -18,3 +18,11 @@ span {
   font-size: 1rem;
   color: #fffa8d;
 }
+@media (max-width: 400px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  .credits {
+    margin: 0 0.5rem;
+  }
+}

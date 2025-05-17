@@ -51,32 +51,25 @@
           formControlName="password"
         />
       </div>
-      <div class="mb-3">
-        <div class="row">
-          <div class="col-3">
-            <button
-              type="submit"
-              class="btn btn-outline-light mt-3"
-              [ngClass]="{
-                disabled:
-                  authForm.get('password')?.invalid ||
-                  authForm.get('email')?.invalid
-              }"
-            >
-              {{ type() === "in" ? "Zaloguj" : "Utwórz konto" }}
-            </button>
-          </div>
-          <div class="col-1"></div>
-          <div class="col-5">
-            <button
-              type="button"
-              class="btn btn-sm btn-dark mt-3"
-              routerLink="/auth/{{ type() === 'up' ? 'in' : 'up' }}"
-            >
-              {{ type() === "up" ? "Zaloguj" : "Utwórz konto" }}
-            </button>
-          </div>
-        </div>
+      <div class="mb-3 d-flex flex-wrap">
+        <button
+          type="submit"
+          class="btn btn-outline-light mt-3 me-5"
+          [ngClass]="{
+            disabled:
+              authForm.get('password')?.invalid ||
+              authForm.get('email')?.invalid
+          }"
+        >
+          {{ type() === "in" ? "Zaloguj" : "Utwórz konto" }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm btn-dark mt-3"
+          routerLink="/auth/{{ type() === 'up' ? 'in' : 'up' }}"
+        >
+          {{ type() === "up" ? "Zaloguj" : "Utwórz konto" }}
+        </button>
       </div>
     </form>
     }

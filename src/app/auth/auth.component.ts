@@ -23,7 +23,6 @@ export class AuthComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   type = input();
-  isLoading = signal(false);
   inactiveProfile = signal(false);
   error = signal<string | null>(null);
   authForm = new FormGroup({
@@ -57,11 +56,9 @@ export class AuthComponent {
       next: (resData) => {
         if (this.type() === 'in') this.router.navigate(['dashboard']);
         this.inactiveProfile.set(true);
-        this.isLoading.set(false);
       },
       error: (errorMessage) => {
         this.error.set(errorMessage);
-        this.isLoading.set(false);
       },
     });
     this.authForm.reset();

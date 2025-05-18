@@ -1,3 +1,6 @@
+.row {
+  width: 100%;
+}
 .form-control {
   background-color: inherit;
   color: inherit;

@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10 mt-5 auth">
-    @if (inactiveProfile()) {
+    @if (isLoading()) {
+    <div class="container"><app-loader /></div>
+    } @if (inactiveProfile()) {
     <app-info
       (click)="inactiveProfile.set(false)"
       [header]="'ℹ️'"
@@ -17,7 +19,7 @@
       [title]="'Coś poszło nie tak...'"
       [content]="error()"
     />
-    } @if (!error() && !inactiveProfile()) {
+    } @if (!error() && !inactiveProfile() && !isLoading()) {
     <form (ngSubmit)="onSubmit()" [formGroup]="authForm">
       @if (type() === 'up') {
       <div class="mb-3">

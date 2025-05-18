@@ -11,11 +11,12 @@ import { Observable } from 'rxjs';
 import { User } from './user.model';
 import { CommonModule } from '@angular/common';
 import { InfoComponent } from '../info/info.component';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, InfoComponent],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, InfoComponent, LoaderComponent],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css',
 })
@@ -23,6 +24,7 @@ export class AuthComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   type = input();
+  isLoading = signal(false);
   inactiveProfile = signal(false);
   error = signal<string | null>(null);
   authForm = new FormGroup({
@@ -42,6 +44,7 @@ export class AuthComponent {
         this.authForm.controls.password.invalid)
     )
       return;
+    this.isLoading.set(true);
     const { email, password, name } = this.authForm.value;
     let authObs!: Observable<{ user: User; credits: number } | string>;
     this.type() === 'in'
@@ -55,9 +58,11 @@ export class AuthComponent {
     authObs.subscribe({
       next: (resData) => {
         if (this.type() === 'in') this.router.navigate(['dashboard']);
+        this.isLoading.set(false);
         this.inactiveProfile.set(true);
       },
       error: (errorMessage) => {
+        this.isLoading.set(false);
         this.error.set(errorMessage);
       },
     });

@@ -13,7 +13,8 @@
         class="d-flex flex-wrap justify-content-center align-items-center p-2 container-md"
         [formGroupName]="i"
       >
-        <div class="me-2 flex-grow-1">
+        <!-- text input -->
+        <!-- <div class="me-2 flex-grow-1">
           <label for="product" class="visually-hidden">product</label>
           <input
             type="text"
@@ -22,7 +23,23 @@
             placeholder="produkt"
             formControlName="product"
           />
+        </div> -->
+        <!-- select -->
+        <div class="me-2 flex-grow-1">
+          <label for="product" class="visually-hidden">product</label>
+          <select
+            class="form-select dark"
+            aria-label="Default select example"
+            formControlName="product"
+            placeholder="produkt"
+          >
+            <option value="" disabled hidden>wybierz produkt</option>
+            <option value="rachunki osobiste">Rachunki Osobiste</option>
+            <option value="kredyty gotówkowe">Kredyty Gotówkowe</option>
+            <option value="karty kredytowe">Karty Kredytowe</option>
+          </select>
         </div>
+
         <div class="me-2 flex-shrink-1">
           <label for="result" class="visually-hidden">result</label>
           <input
